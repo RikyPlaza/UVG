@@ -4,6 +4,11 @@ UVG_BRANCH=`git branch --show-current`
 
 if [ "${UVG_BRANCH}" = "main" ] ; then
 	UVG_TAG=`git describe --tags --abbrev=0`
+
+	if [ "${UVG_TAG}" == *"fatal"* ] ; then
+		UVG_TAG="main"
+	fi
+
 	COMMIT_NUMBER=`git rev-list  `git rev-list --tags --no-walk --max-count=1`..HEAD --count`
 	LAST_COMMIT_ID=`git log --format="%h" -n 1`
 
