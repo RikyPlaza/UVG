@@ -2,7 +2,7 @@
 
 UVG_BRANCH=`git branch --show-current`
 
-if [ x"${UVG_BRANCH}" = "main" ] ; then
+if [ "${UVG_BRANCH}" = "main" ] ; then
 	UVG_TAG=`git describe --tags --abbrev=0`
 	echo "${UVG_TAG}"
 else
