@@ -11,11 +11,10 @@ if [ "${UVG_BRANCH}" = "main" ] ; then
 		UVG_TAG="main"
 	fi
 
-	if [ "${COMMIT_NUMBER}" = "" ] ; then
-		UVG_PACKAGE_VERSION="${UVG_TAG}"-"${LAST_COMMIT_ID}"
+	if [ "${COMMIT_NUMBER}" = "0" ] ; then
+		UVG_PACKAGE_VERSION="${UVG_TAG}"
 	else
 		COMMIT_NUMBER=."${COMMIT_NUMBER}"
-		echo "${COMMIT_NUMBER}"
 		UVG_PACKAGE_VERSION="${UVG_TAG}""${COMMIT_NUMBER}"-"${LAST_COMMIT_ID}"
 	fi
 else
