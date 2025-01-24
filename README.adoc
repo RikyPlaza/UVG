@@ -1,1 +1,1 @@
-
+pkg-config package necessary
