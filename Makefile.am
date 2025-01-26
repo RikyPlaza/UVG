@@ -1,4 +1,5 @@
 bin_PROGRAMS = uvg
+uvg_CCFLAGS = -I/usr/include/libxml2
 uvg_SOURCES = UVG/uvg.c
 
 clean_local:
