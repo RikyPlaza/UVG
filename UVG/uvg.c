@@ -8,8 +8,8 @@ void getReference(xmlDocPtr doc, xmlNodePtr cur) {
 
 	cur = cur->xmlChildrenNode;
 	while (cur != NULL) {
-	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"reference"))) {
-		    printf("uri: %s\n", xmlGetProp(cur, "uri"));
+	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"devices"))) {
+		    printf("uri: %s\n", xmlGetProp(cur, "device"));
 		    }
 	    cur = cur->next;
 	}
@@ -36,7 +36,7 @@ void parseDoc(char *docname) {
 		xmlFreeDoc(doc);
 		return;
 	}
-		
+
 	getReference (doc, cur);
 	xmlFreeDoc(doc);
 	return;
