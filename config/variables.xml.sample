@@ -2,11 +2,13 @@
 <!-- A maximum of 30 devices can be defined for this application-->
 <!-- The allowed deivces are:
     -SiemensETH
-    -OPCUA
-<devices>
-    <device type="" port=""/>
-</devices>
+    -OPCUA -->
+<uvg>
+    <devices>
+        <device type="" port=""/>
+    </devices>
 
-<variables>
-    <variable source="" sourceaddress="" destination="" destinationaddress=""/>
-</variables>
+    <variables>
+        <variable source="" sourceaddress="" destination="" destinationaddress=""/>
+    </variables>
+</uvg>
