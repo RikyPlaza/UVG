@@ -1,6 +1,6 @@
 bin_PROGRAMS = uvg
 uvg_CFLAGS = "-I/usr/include/libxml2"
-uvg_LDADD = libxml2.so
+uvg_LDADD = -lxml2
 uvg_SOURCES = UVG/uvg.c
 
 clean_local:
