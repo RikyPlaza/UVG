@@ -1,1 +1,12 @@
- 
+<?xml version="1.0" encoding="windows-1252"?>
+<!-- A maximum of 30 devices can be defined for this application-->
+<!-- The allowed deivces are:
+    -SiemensETH
+    -OPCUA
+<devices>
+    <device type="" port=""/>
+</devices>
+
+<variables>
+    <variable source="" sourceaddress="" destination="" destinationaddress=""/>
+</variables>
