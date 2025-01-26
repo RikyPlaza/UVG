@@ -36,13 +36,7 @@ void parseDoc(char *docname) {
 		xmlFreeDoc(doc);
 		return;
 	}
-	
-	if (xmlStrcmp(cur->name, (const xmlChar *) "story")) {
-		fprintf(stderr,"document of the wrong type, root node != story");
-		xmlFreeDoc(doc);
-		return;
-	}
-	
+		
 	getReference (doc, cur);
 	xmlFreeDoc(doc);
 	return;
