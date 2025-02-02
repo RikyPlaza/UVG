@@ -19,8 +19,22 @@ typedef struct
 typedef struct
 {
     dev_t dev[DEV_NUMBER_MAX]
-    uint8_t devNumber
+    uint8_t devNumber;
 } devices;
+
+typedef struct
+{
+    char* sourceDev;
+    char* sourceAddress;
+    char* destinationDev;
+    char* destinationAddress;
+} var_t;
+
+typedef struct
+{
+    var_t var[VAR_NUMBER_MAX];
+    uint8_t varNumber;
+}
 
 devices devlist;
 
