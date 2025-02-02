@@ -1,4 +1,6 @@
 #include "common.h"
+
+#include "../strings/uvgstrings.h"
 const char* confpath(void)
 {
 	static const char *path = NULL;
@@ -26,4 +28,25 @@ void initStructs(devices* devlist, variables* varlist)
         varlist->var[i]->destinationDev = strdup("");
         varlist->var[i]->destinationAddress = strdup("");
     }    
+}
+
+devtype getDevType(char* type)
+{
+    devtype device;
+    type = strtolower(type);
+
+    switch(type)
+    {
+        case SIEMENS_CLIENT:
+            device = SIEMENS_CLIENT;
+            break;
+        case OMRON_CLIENT:
+            device = OMRON_CLIENT;
+            break;
+        case OPCUA_CLIENT:
+            device = OMRON_CLIENT;
+            break;
+    }
+    
+    return device;
 }

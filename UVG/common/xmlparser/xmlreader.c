@@ -1,4 +1,5 @@
 #include "xmlreader.h"
+#include "../common.h"
 
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur) 
 {
@@ -8,8 +9,9 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur)
     {
 	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"device"))) 
         {
-            /*insert into structure*/
-		    printf("uri: %s\n", xmlGetProp(cur, "type"));
+            devList.dev[devList.devNumber].name = (char*) xmlGetProp(cur, "name");
+            devList.dev[devList.devNumber].port = (char*) xmlGetProp(cur, "port");
+            devList.dev[devList.devNumber].type = getDevType((char*) xmlGetProp(cur, "type"));
 		}
 	    cur = cur->next;
 	}
