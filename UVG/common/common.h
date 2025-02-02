@@ -4,11 +4,14 @@
 
 typedef enum
 {
-
+    SIEMENS_CLIENT,
+    OMRON_CLIENT,
+    OPCUA_CLIENT
 } devtype;
 
 typedef struct
 {
+    char* name;
     devtype type;
     char* port;
 } dev_t;
