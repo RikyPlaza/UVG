@@ -22,4 +22,7 @@ typedef struct
     uint8_t devNumber
 } devices;
 
+devices devlist;
+
 const char* confpath(void);
+void initStructs(devices* devlist);
