@@ -1,3 +1,4 @@
+#include "common.h"
 const char* confpath(void)
 {
 	static const char *path = NULL;
