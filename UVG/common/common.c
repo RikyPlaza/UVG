@@ -18,6 +18,7 @@ const char* confpath(void)
 void initStructs(devices* devlist, variables* varlist)
 {
     devlist->devNumber = 0;
+    varlist->varNumber = 0;
     for(int i = 0; i < VAR_NUMBER_MAX; i++)
     {
         varlist->var[i]->sourceDev = strdup("");
