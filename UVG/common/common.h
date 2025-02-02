@@ -1,3 +1,5 @@
+#include <string.h>
+
 #define CONFIG_PATH_MAX_LENGHT 512
 #define VAR_NUMBER_MAX 2048
 #define DEV_NUMBER_MAX 30
@@ -34,9 +36,10 @@ typedef struct
 {
     var_t var[VAR_NUMBER_MAX];
     uint8_t varNumber;
-}
+} variables;
 
-devices devlist;
+devices devList;
+variables varList;
 
 const char* confpath(void);
-void initStructs(devices* devlist);
+void initStructs(devices* devlist, variables* varlist);
