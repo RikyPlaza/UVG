@@ -3,7 +3,6 @@
 
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur) 
 {
-
 	cur = cur->xmlChildrenNode;
 	while (cur != NULL) 
     {
@@ -12,6 +11,8 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur)
             devList.dev[devList.devNumber].name = (char*) xmlGetProp(cur, "name");
             devList.dev[devList.devNumber].port = (char*) xmlGetProp(cur, "port");
             devList.dev[devList.devNumber].type = getDevType((char*) xmlGetProp(cur, "type"));
+
+            devList.devnumber += 1; 
 		}
 	    cur = cur->next;
 	}
@@ -20,13 +21,17 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur)
 
 void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur) 
 {
-
 	cur = cur->xmlChildrenNode;
 	while (cur != NULL) 
     {
 	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"variable"))) 
         {
-            /*insert into structure*/
+            varList.var[varList.varNumber].sourceDev = (char*) xmlGetProp(cur, "source");
+            varList.var[varList.varNumber].sourceAddress = (char*) xmlGetProp(cur, "sourceaddress");
+            varList.var[varList.varNumber].destinationDev = (char*) xmlGetProp(cur, "destination");
+            varList.var[varList.varNumber].destinationAddress = (char*) xmlGetProp(cur, "destinationaddress");
+
+            varList.varNumber += 1;
 		}
 	    cur = cur->next;
 	}
@@ -35,7 +40,6 @@ void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur)
 
 void readFullConfig()
 {
-
 	xmlDocPtr config;
 	xmlNodePtr cur;
     char docPath[CONFIG_PATH_MAX_LENGHT] 
@@ -56,6 +60,9 @@ void readFullConfig()
         /*Exit the application with error*/
 		return;
 	}
+
+    getDevicesFromConfig(config, cur);
+    getVariablesFromConfig(config, cur);
 
 	xmlFreeDoc(config);
 	return;
