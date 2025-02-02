@@ -13,4 +13,4 @@ typedef struct
     char* port;
 } dev_t;
 
-const char* confpath(void)
+const char* confpath(void);
