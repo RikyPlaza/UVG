@@ -5,7 +5,7 @@
     -OPCUA -->
 <uvg>
     <devices>
-        <device type="" port=""/>
+        <device name="" type="" port=""/>
     </devices>
 
     <variables>
