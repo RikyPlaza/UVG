@@ -1,6 +1,8 @@
+#define CONFIG_PATH_MAX_LENGHT 512
+
 typedef enum
 {
-    
+
 } devtype;
 
 typedef struct
