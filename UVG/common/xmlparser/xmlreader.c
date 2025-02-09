@@ -1,7 +1,5 @@
 #include "xmlreader.h"
-#include "../strings/uvgstrings.h"
 #include "../common.h"
-#include "../../drivers/driverlist.h"
 
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist) 
 {
