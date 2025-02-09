@@ -1,6 +1,6 @@
 #include <stdint.h>
 
-#include "structs.h"
+#include "xmlparser/xmlreader.h"
 
 const char* confpath(void);
 void initStructs(devices* devlist, variables* varlist);
