@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "common.h"
-#include "strings/uvgstrings.h"
-#include "../drivers/driverlist.h"
 
 const char* confpath(void)
 {

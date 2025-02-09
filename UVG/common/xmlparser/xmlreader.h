@@ -2,6 +2,8 @@
 #include <libxml/xmlmemory.h>
 #include <libxml/parser.h>
 #include "../structs.h"
+#include "strings/uvgstrings.h"
+#include "../drivers/driverlist.h"
 
 devtype getDevType(char* type);
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist);
