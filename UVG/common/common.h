@@ -38,9 +38,6 @@ typedef struct
     uint8_t varNumber;
 } variables;
 
-devices devList;
-variables varList;
-
 const char* confpath(void);
 void initStructs(devices* devlist, variables* varlist);
 devtype getDevType(char* type);
