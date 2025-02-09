@@ -16,11 +16,11 @@ typedef struct
     char* name;
     devtype type;
     char* port;
-} dev_t;
+} device_t;
 
 typedef struct
 {
-    dev_t dev[DEV_NUMBER_MAX];
+    device_t dev[DEV_NUMBER_MAX];
     uint8_t devNumber;
 } devices;
 
@@ -30,11 +30,11 @@ typedef struct
     char* sourceAddress;
     char* destinationDev;
     char* destinationAddress;
-} var_t;
+} variable_t;
 
 typedef struct
 {
-    var_t var[VAR_NUMBER_MAX];
+    variable_t var[VAR_NUMBER_MAX];
     uint8_t varNumber;
 } variables;
 
