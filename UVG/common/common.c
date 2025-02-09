@@ -36,7 +36,7 @@ void initStructs(devices* devlist, variables* varlist)
 
 void populateStructs(devices* devlist, variables* varlist)
 {
-    void readFullConfig(devlist, varlist);
+    readFullConfig(devlist, varlist);
 }
 
 devtype getDevType(char* type)
