@@ -57,7 +57,7 @@ void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur, variables* varlist)
             varlist->var[varlist->varNumber].destinationDev = (char*) xmlGetProp(cur, "destination");
             varlist->var[varlist->varNumber].destinationAddress = (char*) xmlGetProp(cur, "destinationaddress");
 
-            vvarlistarList->varNumber += 1;
+            varlist->varNumber += 1;
 		}
 	    cur = cur->next;
 	}
