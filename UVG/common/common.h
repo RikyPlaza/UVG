@@ -1,3 +1,5 @@
+#include <stdint.h>
+
 #define CONFIG_PATH_MAX_LENGHT 512
 #define VAR_NUMBER_MAX 2048
 #define DEV_NUMBER_MAX 30
