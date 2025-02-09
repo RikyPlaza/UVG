@@ -1,44 +1,44 @@
 #include "xmlreader.h"
 #include "../common.h"
 
-void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur) 
+void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist) 
 {
 	cur = cur->xmlChildrenNode;
 	while (cur != NULL) 
     {
 	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"device"))) 
         {
-            devList.dev[devList.devNumber].name = (char*) xmlGetProp(cur, "name");
-            devList.dev[devList.devNumber].port = (char*) xmlGetProp(cur, "port");
-            devList.dev[devList.devNumber].type = getDevType((char*) xmlGetProp(cur, "type"));
+            devlist->dev[devlist->devNumber].name = (char*) xmlGetProp(cur, "name");
+            devlist->dev[devlist->devNumber].port = (char*) xmlGetProp(cur, "port");
+            devlist->dev[devlist->devNumber].type = getDevType((char*) xmlGetProp(cur, "type"));
 
-            devList.devNumber += 1; 
+            devlist->devNumber += 1; 
 		}
 	    cur = cur->next;
 	}
     return;
 }
 
-void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur) 
+void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur, variables* varlist) 
 {
 	cur = cur->xmlChildrenNode;
 	while (cur != NULL) 
     {
 	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"variable"))) 
         {
-            varList.var[varList.varNumber].sourceDev = (char*) xmlGetProp(cur, "source");
-            varList.var[varList.varNumber].sourceAddress = (char*) xmlGetProp(cur, "sourceaddress");
-            varList.var[varList.varNumber].destinationDev = (char*) xmlGetProp(cur, "destination");
-            varList.var[varList.varNumber].destinationAddress = (char*) xmlGetProp(cur, "destinationaddress");
+            varlist->var[varlist->varNumber].sourceDev = (char*) xmlGetProp(cur, "source");
+            varlist->var[varlist->varNumber].sourceAddress = (char*) xmlGetProp(cur, "sourceaddress");
+            varlist->var[varlist->varNumber].destinationDev = (char*) xmlGetProp(cur, "destination");
+            varlist->var[varlist->varNumber].destinationAddress = (char*) xmlGetProp(cur, "destinationaddress");
 
-            varList.varNumber += 1;
+            vvarlistarList->varNumber += 1;
 		}
 	    cur = cur->next;
 	}
     return;
 }
 
-void readFullConfig()
+void readFullConfig(devices* devlist, variables* varlist)
 {
 	xmlDocPtr config;
 	xmlNodePtr cur;
@@ -61,8 +61,8 @@ void readFullConfig()
 		return;
 	}
 
-    getDevicesFromConfig(config, cur);
-    getVariablesFromConfig(config, cur);
+    getDevicesFromConfig(config, cur, devlist);
+    getVariablesFromConfig(config, cur, varlist);
 
 	xmlFreeDoc(config);
 	return;
