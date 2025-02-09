@@ -1,5 +1,29 @@
 #include "xmlreader.h"
-#include "../common.h"
+
+devtype getDevType(char* type)
+{
+    devtype device;
+    type = strtolower(type);
+
+    if(type == SIEMENS_CLIENT_DESC)
+    {
+        device = SIEMENS_CLIENT;
+    } 
+    else if (type == OMRON_CLIENT_DESC)
+    {
+        device = OMRON_CLIENT;        
+    } 
+    else if (type == OPCUA_CLIENT_DESC)
+    {
+        device = OMRON_CLIENT;
+    } 
+    else
+    {
+        /*Exit the application with error*/
+    }
+    
+    return device;
+}
 
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist) 
 {
