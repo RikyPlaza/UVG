@@ -3,6 +3,7 @@
 #include "common.h"
 #include "strings/uvgstrings.h"
 #include "../drivers/driverlist.h"
+#include "xmlparser/xmlreader.h"
 
 const char* confpath(void)
 {
@@ -31,6 +32,11 @@ void initStructs(devices* devlist, variables* varlist)
         varlist->var[i].destinationDev = strdup("");
         varlist->var[i].destinationAddress = strdup("");
     }    
+}
+
+void populateStructs(devices* devlist, variables* varlist)
+{
+    void readFullConfig(devlist, varlist);
 }
 
 devtype getDevType(char* type)
