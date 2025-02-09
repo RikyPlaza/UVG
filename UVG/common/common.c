@@ -28,7 +28,7 @@ void initStructs(devices* devlist, variables* varlist)
         varlist->var[i].sourceAddress = strdup("");
         varlist->var[i].destinationDev = strdup("");
         varlist->var[i].destinationAddress = strdup("");
-    }    
+    }
 }
 
 void populateStructs(devices* devlist, variables* varlist)
@@ -38,4 +38,27 @@ void populateStructs(devices* devlist, variables* varlist)
     snprintf(configPath, sizeof(configPath), "%s/variables.xml", confpath());
 
     readFullConfig(devlist, varlist, configPath);
+}
+
+void printVars(variables* varlist)
+{
+    for(int i = 0; i < VAR_NUMBER_MAX; i++)
+    {
+        printf("Source device: %s - Source address: %s - Destination device: %s - Destination address: %s\n", varlist->var[i].sourceDev, varlist->var[i].sourceAddress, 
+                varlist->var[i].destinationDev, varlist->var[i].destinationAddress);
+    }
+}
+
+void printDevs(devices* devlist,)
+{
+    for(int i = 0; i < DEV_NUMBER_MAX; i++)
+    {
+        printf("Device name: %s - Device type: %s - Device port: %s\n", devlist->dev[i].name, devlist->dev[i].type, devlist->dev[i].port);
+    }
+}
+
+void printConfig(devices* devlist, variables* varlist)
+{
+    printVars(varlist);
+    printDevs(devlist);
 }
