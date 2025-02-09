@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "common/common.h"
 #include "common/xmlparser/xmlreader.h"
-#include "common/structs.h"
+
 int main(int argc, char **argv) 
 {
 	devices devList;
