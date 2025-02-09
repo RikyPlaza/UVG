@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <libxml/xmlmemory.h>
 #include <libxml/parser.h>
+#include "../common.h"
 
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist);
 void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur, variables* varlist);
