@@ -1,5 +1,3 @@
-#include <stdint.h>
-
 #include "xmlparser/xmlreader.h"
 
 const char* confpath(void);
