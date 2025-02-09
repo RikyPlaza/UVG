@@ -18,7 +18,7 @@ typedef struct
 
 typedef struct
 {
-    dev_t dev[DEV_NUMBER_MAX]
+    dev_t dev[DEV_NUMBER_MAX];
     uint8_t devNumber;
 } devices;
 
