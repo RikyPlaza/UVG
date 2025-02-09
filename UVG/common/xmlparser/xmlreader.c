@@ -1,5 +1,6 @@
 #include "xmlreader.h"
 #include "../strings/uvgstrings.h"
+#include "../drivers/driverlist.h"
 
 devtype getDevType(char* type)
 {
