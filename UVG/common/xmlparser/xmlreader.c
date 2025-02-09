@@ -1,47 +1,7 @@
 #include "xmlreader.h"
 #include "../strings/uvgstrings.h"
+#include "../common.h"
 #include "../../drivers/driverlist.h"
-
-const char* confpath(void)
-{
-	static const char *path = NULL;
-	if (path)
-		return path;
-
-	path = getenv("UVG_CONFIGPATH");
-
-	if (path == NULL) 
-    {
-		/*Exit the application with error*/
-	}
-
-	return path;
-}
-
-devtype getDevType(char* type)
-{
-    devtype device;
-    type = strtolower(type);
-
-    if(type == SIEMENS_CLIENT_DESC)
-    {
-        device = SIEMENS_CLIENT;
-    } 
-    else if (type == OMRON_CLIENT_DESC)
-    {
-        device = OMRON_CLIENT;        
-    } 
-    else if (type == OPCUA_CLIENT_DESC)
-    {
-        device = OMRON_CLIENT;
-    } 
-    else
-    {
-        /*Exit the application with error*/
-    }
-    
-    return device;
-}
 
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist) 
 {
