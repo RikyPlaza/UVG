@@ -2,6 +2,7 @@
 
 #include "common.h"
 #include "strings/uvgstrings.h"
+#include "drivers/driverlist.h"
 
 const char* confpath(void)
 {
@@ -37,17 +38,21 @@ devtype getDevType(char* type)
     devtype device;
     type = strtolower(type);
 
-    switch(type)
+    if(type == SIEMENS_CLIENT_DESC)
     {
-        case SIEMENS_CLIENT:
-            device = SIEMENS_CLIENT;
-            break;
-        case OMRON_CLIENT:
-            device = OMRON_CLIENT;
-            break;
-        case OPCUA_CLIENT:
-            device = OMRON_CLIENT;
-            break;
+        device = SIEMENS_CLIENT;
+    } 
+    else if (type == OMRON_CLIENT_DESC)
+    {
+        device = OMRON_CLIENT;        
+    } 
+    else if (type == OPCUA_CLIENT_DESC)
+    {
+        device = OMRON_CLIENT;
+    } 
+    else
+    {
+        /*Exit the application with error*/
     }
     
     return device;
