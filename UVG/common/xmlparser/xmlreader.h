@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <libxml/xmlmemory.h>
 #include <libxml/parser.h>
-#include "../common.h"
+#include "../structs.h"
 
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist);
 void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur, variables* varlist);
-void readFullConfig(devices* devlist, variables* varlist);
+void readFullConfig(devices* devlist, variables* varlist, char* docPath);

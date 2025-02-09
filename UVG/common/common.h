@@ -1,4 +1,4 @@
-#include "structs.h"
+#include "xmlparser/xmlreader.h"
 
 const char* confpath(void);
 devtype getDevType(char* type);

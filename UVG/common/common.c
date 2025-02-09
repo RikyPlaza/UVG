@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "common.h"
-
-#include "xmlparser/xmlreader.h"
 #include "strings/uvgstrings.h"
 #include "../drivers/driverlist.h"
 
@@ -62,5 +60,9 @@ void initStructs(devices* devlist, variables* varlist)
 
 void populateStructs(devices* devlist, variables* varlist)
 {
-    readFullConfig(devlist, varlist);
+    char configPath[CONFIG_PATH_MAX_LENGHT];
+
+    snprintf(configPath, sizeof(configPath), "%s/variables.xml", confpath());
+    
+    readFullConfig(devlist, varlist, configPath);
 }

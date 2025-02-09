@@ -1,5 +1,4 @@
 #include "xmlreader.h"
-#include "../common.h"
 
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist) 
 {
@@ -38,13 +37,11 @@ void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur, variables* varlist)
     return;
 }
 
-void readFullConfig(devices* devlist, variables* varlist)
+void readFullConfig(devices* devlist, variables* varlist, char* docPath)
 {
 	xmlDocPtr config;
 	xmlNodePtr cur;
-    char docPath[CONFIG_PATH_MAX_LENGHT];
-
-    snprintf(docPath, sizeof(docPath), "%s/variables.xml", confpath());
+    
 	config = xmlParseFile(docPath);
 	
 	if (config == NULL ) {
