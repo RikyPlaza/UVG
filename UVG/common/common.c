@@ -49,7 +49,7 @@ void printVars(variables* varlist)
     }
 }
 
-void printDevs(devices* devlist,)
+void printDevs(devices* devlist)
 {
     for(int i = 0; i < DEV_NUMBER_MAX; i++)
     {
