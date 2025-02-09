@@ -25,6 +25,26 @@ devtype getDevType(char* type)
     return device;
 }
 
+char* getDevDesc(devtype type)
+{
+    const char *desc = NULL;
+
+    switch(type)
+    {
+        case SIEMENS_CLIENT:
+            desc = SIEMENS_CLIENT_DESC;
+            break;
+        case OMRON_CLIENT:
+            desc = OMRON_CLIENT_DESC;
+            break;
+        case OMRON_CLIENT:
+            desc = OPCUA_CLIENT_DESC;
+            break;
+    }
+
+    return desc;
+}
+
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist) 
 {
 	cur = cur->xmlChildrenNode;
