@@ -12,7 +12,7 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur)
             devList.dev[devList.devNumber].port = (char*) xmlGetProp(cur, "port");
             devList.dev[devList.devNumber].type = getDevType((char*) xmlGetProp(cur, "type"));
 
-            devList.devnumber += 1; 
+            devList.devNumber += 1; 
 		}
 	    cur = cur->next;
 	}
@@ -42,7 +42,7 @@ void readFullConfig()
 {
 	xmlDocPtr config;
 	xmlNodePtr cur;
-    char docPath[CONFIG_PATH_MAX_LENGHT] 
+    char docPath[CONFIG_PATH_MAX_LENGHT];
 
     snprintf(docPath, sizeof(docPath), "%s/variables.xml", confpath());
 	config = xmlParseFile(docPath);
