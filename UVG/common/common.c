@@ -2,7 +2,7 @@
 
 #include "common.h"
 #include "strings/uvgstrings.h"
-#include "drivers/driverlist.h"
+#include "../drivers/driverlist.h"
 
 const char* confpath(void)
 {
