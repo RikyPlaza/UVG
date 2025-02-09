@@ -1,6 +1,8 @@
-#include "common.h"
+#include <stdlib.h>
 
+#include "common.h"
 #include "strings/uvgstrings.h"
+
 const char* confpath(void)
 {
 	static const char *path = NULL;
