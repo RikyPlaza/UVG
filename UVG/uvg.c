@@ -6,8 +6,9 @@ int main(int argc, char **argv)
 {
 	devices devList;
 	variables varList;
-	
-	readFullConfig();
+
+	initStructs(&devList, &varList);
+	populateStructs(&devList, &varList);
 	
 	return (1);
 }
