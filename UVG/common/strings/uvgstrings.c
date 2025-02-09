@@ -7,5 +7,5 @@ char* strtolower(char* str)
         *p=tolower(*p);
     }
 
-    return s;
+    return str;
 }
