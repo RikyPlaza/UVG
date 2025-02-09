@@ -25,10 +25,10 @@ void initStructs(devices* devlist, variables* varlist)
     varlist->varNumber = 0;
     for(int i = 0; i < VAR_NUMBER_MAX; i++)
     {
-        varlist->var[i]->sourceDev = strdup("");
-        varlist->var[i]->sourceAddress = strdup("");
-        varlist->var[i]->destinationDev = strdup("");
-        varlist->var[i]->destinationAddress = strdup("");
+        varlist->var[i].sourceDev = strdup("");
+        varlist->var[i].sourceAddress = strdup("");
+        varlist->var[i].destinationDev = strdup("");
+        varlist->var[i].destinationAddress = strdup("");
     }    
 }
 
