@@ -1,11 +1,10 @@
 #include <stdio.h>
+#include "common/common.h"
+#include "common/xmlparser/xmlreader.h"
 
 int main(int argc, char **argv) {
 
-	const char *docname;
-
-	docname = "./variables.xml";
-	parseDoc (docname);
+	readFullConfig();
 	
 	return (1);
 }
