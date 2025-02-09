@@ -15,7 +15,7 @@ devtype getDevType(char* type)
     } 
     else if (type == OPCUA_CLIENT_DESC)
     {
-        device = OMRON_CLIENT;
+        device = OPCUA_CLIENT;
     } 
     else
     {
@@ -37,7 +37,7 @@ char* getDevDesc(devtype type)
         case OMRON_CLIENT:
             desc = OMRON_CLIENT_DESC;
             break;
-        case OMRON_CLIENT:
+        case OPCUA_CLIENT:
             desc = OPCUA_CLIENT_DESC;
             break;
     }
