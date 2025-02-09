@@ -53,7 +53,7 @@ void printDevs(devices* devlist)
 {
     for(int i = 0; i < DEV_NUMBER_MAX; i++)
     {
-        printf("Device name: %s - Device type: %s - Device port: %s\n", devlist->dev[i].name, devlist->dev[i].type, devlist->dev[i].port);
+        printf("Device name: %s - Device type: %s - Device port: %s\n", devlist->dev[i].name, getDevDesc(devlist->dev[i].type), devlist->dev[i].port);
     }
 }
 
