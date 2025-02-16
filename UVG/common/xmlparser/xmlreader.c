@@ -53,16 +53,27 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
 #ifdef DEBUG
             printf("xml node name: %s\n", (char*)cur->name);
 #endif
-	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"device"))) 
+	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"devices"))) 
         {
-            devlist->dev[devlist->devNumber].name = (char*) xmlGetProp(cur, "name");
-            devlist->dev[devlist->devNumber].port = (char*) xmlGetProp(cur, "port");
-            devlist->dev[devlist->devNumber].type = getDevType((char*) xmlGetProp(cur, "type"));
+            cur = cur->xmlChildrenNode;
 
-            devlist->devNumber += 1;
+            while (cur != NULL) 
+            {
+                #ifdef DEBUG
+                printf("xml node name: %s\n", (char*)cur->name);
+                #endif
+                if ((!xmlStrcmp(cur->name, (const xmlChar *)"device"))) 
+                {
+                    devlist->dev[devlist->devNumber].name = (char*) xmlGetProp(cur, "name");
+                    devlist->dev[devlist->devNumber].port = (char*) xmlGetProp(cur, "port");
+                    devlist->dev[devlist->devNumber].type = getDevType((char*) xmlGetProp(cur, "type"));
+
+                    devlist->devNumber += 1;
 #ifdef DEBUG
-            printf("Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), getDevType((char*) xmlGetProp(cur, "type")), (char*) xmlGetProp(cur, "port"));
+                    printf("Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), getDevType((char*) xmlGetProp(cur, "type")), (char*) xmlGetProp(cur, "port"));
 #endif
+                }
+            }
 		}
 	    cur = cur->next;
 	}
