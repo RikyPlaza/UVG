@@ -50,6 +50,9 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
 	cur = cur->xmlChildrenNode;
 	while (cur != NULL) 
     {
+#ifdef DEBUG
+            printf("xml node name: %s\n", (char*)((const xmlChar *)"device"));
+#endif
 	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"device"))) 
         {
             devlist->dev[devlist->devNumber].name = (char*) xmlGetProp(cur, "name");
@@ -57,7 +60,7 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
             devlist->dev[devlist->devNumber].type = getDevType((char*) xmlGetProp(cur, "type"));
 
             devlist->devNumber += 1;
-#if DEBUG
+#ifdef DEBUG
             printf("Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), getDevType((char*) xmlGetProp(cur, "type")), (char*) xmlGetProp(cur, "port"));
 #endif
 		}
@@ -79,7 +82,7 @@ void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur, variables* varlist)
             varlist->var[varlist->varNumber].destinationAddress = (char*) xmlGetProp(cur, "destinationaddress");
 
             varlist->varNumber += 1;
-#if DEBUG
+#ifdef DEBUG
             printf("Source device: %s - Source address: %s - Destination device: %s - Destination address: %s\n", (char*) xmlGetProp(cur, "source"), (char*) xmlGetProp(cur, "sourceaddress"), 
                 (char*) xmlGetProp(cur, "destination"), (char*) xmlGetProp(cur, "destinationaddress"));
 #endif
