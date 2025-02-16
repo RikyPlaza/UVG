@@ -1,5 +1,5 @@
 time_t clk;
 
 void initlog();
-void log(const char* log, int codeLine, const char* funcName);
-void debuglog(const char* log, int codeLine, const char* funcName);
+void uvglog(const char* log, int codeLine, const char* funcName);
+void uvgdebuglog(const char* log, int codeLine, const char* funcName);
