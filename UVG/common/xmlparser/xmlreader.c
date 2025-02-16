@@ -86,6 +86,9 @@ void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur, variables* varlist)
 	cur = cur->xmlChildrenNode;
 	while (cur != NULL) 
     {
+        #ifdef DEBUG
+            printf("xml node name: %s\n", (char*)cur->name);
+        #endif
 	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"variable"))) 
         {
             varlist->var[varlist->varNumber].sourceDev = (char*) xmlGetProp(cur, "source");
