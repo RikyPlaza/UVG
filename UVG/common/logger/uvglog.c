@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "uvglog.h"
 
-void initlog()
+void initlog(time_t* clk)
 {
     clk = time(NULL);
 }

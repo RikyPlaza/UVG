@@ -3,10 +3,11 @@
 
 int main(int argc, char **argv) 
 {
+	time_t clk;
+	initlog(&clk);
+
 	devices devList;
 	variables varList;
-
-	initlog();
 	initStructs(&devList, &varList);
 	populateStructs(&devList, &varList);
 	
