@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include "uvglog.h"
 
-void initlog(time_t* clk)
+time_t clk;
+void initlog()
 {
     clk = time(NULL);
 }

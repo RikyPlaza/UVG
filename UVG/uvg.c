@@ -3,8 +3,7 @@
 
 int main(int argc, char **argv) 
 {
-	time_t clk;
-	initlog(&clk);
+	initlog();
 
 	devices devList;
 	variables varList;
