@@ -6,6 +6,7 @@
 
 typedef enum
 {
+    NONE,
     SIEMENS_CLIENT,
     OMRON_CLIENT,
     OPCUA_CLIENT
