@@ -21,6 +21,12 @@ const char* confpath(void)
 void initStructs(devices* devlist, variables* varlist)
 {
     devlist->devNumber = 0;
+    for(int i = 0; i < DEV_NUMBER_MAX; i++)
+    {
+        devlist->dev[i].name = strdup("");
+        devlist->dev[i].port = strdup("");
+        devlist->dev[i].type = NONE;
+    }
     varlist->varNumber = 0;
     for(int i = 0; i < VAR_NUMBER_MAX; i++)
     {
