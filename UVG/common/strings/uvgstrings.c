@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "uvgstrings.h"
 
 char* strtolower(char* str)
