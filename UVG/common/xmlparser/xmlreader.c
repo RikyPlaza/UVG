@@ -51,7 +51,7 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
 	cur = cur->xmlChildrenNode;
 	while (cur != NULL) 
     {
-        debuglog(sprintf("xml node name: %s\n", (char*)cur->name), __LINE__, __FUNCTION__);
+        debuglog(uvgsprintf("xml node name: %s\n", (char*)cur->name), __LINE__, __FUNCTION__);
 
 	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"devices"))) 
         {
@@ -59,11 +59,11 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
 
             while (cur != NULL) 
             {
-                debuglog(sprintf("xml node name: %s\n", (char*)cur->name), __LINE__, __FUNCTION__);
+                debuglog(uvgsprintf("xml node name: %s\n", (char*)cur->name), __LINE__, __FUNCTION__);
 
                 if ((!xmlStrcmp(cur->name, (const xmlChar *)"device"))) 
                 {
-                    debuglog(sprintf("Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), getDevType((char*) xmlGetProp(cur, "type")), (char*) xmlGetProp(cur, "port")), __LINE__, __FUNCTION__);
+                    debuglog(uvgsprintf("Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), getDevType((char*) xmlGetProp(cur, "type")), (char*) xmlGetProp(cur, "port")), __LINE__, __FUNCTION__);
                     
                     devlist->dev[devlist->devNumber].name = (char*) xmlGetProp(cur, "name");
                     devlist->dev[devlist->devNumber].port = (char*) xmlGetProp(cur, "port");
@@ -84,7 +84,7 @@ void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur, variables* varlist)
 	cur = cur->xmlChildrenNode;
 	while (cur != NULL) 
     {
-        debuglog(sprintf("xml node name: %s\n", (char*)cur->name), __LINE__, __FUNCTION__);
+        debuglog(uvgsprintf("xml node name: %s\n", (char*)cur->name), __LINE__, __FUNCTION__);
 
 	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"variable"))) 
         {
@@ -95,7 +95,7 @@ void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur, variables* varlist)
 
             varlist->varNumber += 1;
 
-            debuglog(sprintf("Source device: %s - Source address: %s - Destination device: %s - Destination address: %s\n", (char*) xmlGetProp(cur, "source"), (char*) xmlGetProp(cur, "sourceaddress"), 
+            debuglog(uvgsprintf("Source device: %s - Source address: %s - Destination device: %s - Destination address: %s\n", (char*) xmlGetProp(cur, "source"), (char*) xmlGetProp(cur, "sourceaddress"), 
                 (char*) xmlGetProp(cur, "destination"), (char*) xmlGetProp(cur, "destinationaddress")), __LINE__, __FUNCTION__);
 		}
 	    cur = cur->next;

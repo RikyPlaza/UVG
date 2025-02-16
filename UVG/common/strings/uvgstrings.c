@@ -9,3 +9,13 @@ char* strtolower(char* str)
 
     return str;
 }
+
+char* uvgsprintf(char* buf, char* fmt, ...)
+{
+    va_list va;
+    va_start (va, fmt);
+    vsprintf (buf, fmt, va);
+    va_end (va);
+
+    return buf;
+}
