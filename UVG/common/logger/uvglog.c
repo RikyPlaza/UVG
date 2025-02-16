@@ -1,4 +1,5 @@
 #include <time.h>
+#include <stdio.h>
 #include "uvglog.h"
 
 void initlog()
