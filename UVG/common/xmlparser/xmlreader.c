@@ -64,14 +64,14 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
                 #endif
                 if ((!xmlStrcmp(cur->name, (const xmlChar *)"device"))) 
                 {
+#ifdef DEBUG
+                    printf("Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), getDevType((char*) xmlGetProp(cur, "type")), (char*) xmlGetProp(cur, "port"));
+#endif
                     devlist->dev[devlist->devNumber].name = (char*) xmlGetProp(cur, "name");
                     devlist->dev[devlist->devNumber].port = (char*) xmlGetProp(cur, "port");
                     devlist->dev[devlist->devNumber].type = getDevType((char*) xmlGetProp(cur, "type"));
 
                     devlist->devNumber += 1;
-#ifdef DEBUG
-                    printf("Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), getDevType((char*) xmlGetProp(cur, "type")), (char*) xmlGetProp(cur, "port"));
-#endif
                 }
                 cur = cur->next;
             }
