@@ -1,5 +1,4 @@
 #include "xmlreader.h"
-#include "../logger/uvglog.h"
 
 devtype getDevType(char* type)
 {

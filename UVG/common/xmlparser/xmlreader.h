@@ -4,6 +4,7 @@
 #include "../structs.h"
 #include "../strings/uvgstrings.h"
 #include "../../drivers/driverlist.h"
+#include "../logger/uvglog.h"
 
 devtype getDevType(char* type);
 char* getDevDesc(devtype type);
