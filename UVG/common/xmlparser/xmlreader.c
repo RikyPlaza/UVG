@@ -56,7 +56,10 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
             devlist->dev[devlist->devNumber].port = (char*) xmlGetProp(cur, "port");
             devlist->dev[devlist->devNumber].type = getDevType((char*) xmlGetProp(cur, "type"));
 
-            devlist->devNumber += 1; 
+            devlist->devNumber += 1;
+#if DEBUG
+            printf("Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), getDevType((char*) xmlGetProp(cur, "type")), (char*) xmlGetProp(cur, "port"));
+#endif
 		}
 	    cur = cur->next;
 	}
@@ -76,6 +79,10 @@ void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur, variables* varlist)
             varlist->var[varlist->varNumber].destinationAddress = (char*) xmlGetProp(cur, "destinationaddress");
 
             varlist->varNumber += 1;
+#if DEBUG
+            printf("Source device: %s - Source address: %s - Destination device: %s - Destination address: %s\n", (char*) xmlGetProp(cur, "source"), (char*) xmlGetProp(cur, "sourceaddress"), 
+                (char*) xmlGetProp(cur, "destination"), (char*) xmlGetProp(cur, "destinationaddress"));
+#endif
 		}
 	    cur = cur->next;
 	}
