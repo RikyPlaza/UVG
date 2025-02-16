@@ -51,7 +51,7 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
 	while (cur != NULL) 
     {
 #ifdef DEBUG
-            printf("xml node name: %s\n", (char*)((const xmlChar *)"device"));
+            printf("xml node name: %s\n", (char*)cur->name);
 #endif
 	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"device"))) 
         {
