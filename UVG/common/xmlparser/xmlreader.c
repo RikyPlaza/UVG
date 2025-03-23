@@ -83,7 +83,6 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
 
             uvgdebuglog(__LINE__, __FUNCTION__, "Leaving devices");
 		}
-	    cur = cur->next;
         uvgdebuglog(__LINE__, __FUNCTION__, "Outside devices");
 	}
     return;
