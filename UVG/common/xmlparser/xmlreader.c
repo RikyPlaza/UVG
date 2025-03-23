@@ -8,17 +8,17 @@ void setDevType(char* type, devtype* device)
     if(strcmp(type, SIEMENS_CLIENT_DESC) == 0)
     {
         uvgdebuglog(__LINE__, __FUNCTION__, "Detected siemens device");
-        device = SIEMENS_CLIENT;
+        *device = SIEMENS_CLIENT;
     } 
     else if (strcmp(type, OMRON_CLIENT_DESC) == 0)
     {
         uvgdebuglog(__LINE__, __FUNCTION__, "Detected omron device");
-        device = OMRON_CLIENT;        
+        *device = OMRON_CLIENT;        
     } 
     else if (strcmp(type, OPCUA_CLIENT_DESC) == 0)
     {
         uvgdebuglog(__LINE__, __FUNCTION__, "Detected opcua client device");
-        device = OPCUA_CLIENT;
+        *device = OPCUA_CLIENT;
     } 
     else
     {
