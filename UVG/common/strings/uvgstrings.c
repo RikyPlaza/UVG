@@ -32,7 +32,7 @@ char* uvgremovechar(char* buf, char ch)
         {
             shift++;
 
-            if(i == strlen(buf) - 1)
+            if(i == strlen(buf))
                 skipStrReset = true;
         }            
 
