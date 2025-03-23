@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "uvgstrings.h"
 
 char* strtolower(char* str)
