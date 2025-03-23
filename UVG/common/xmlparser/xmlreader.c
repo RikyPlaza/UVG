@@ -3,8 +3,9 @@
 devtype getDevType(char* type)
 {
     devtype device;
+    uvgdebuglog(__LINE__, __FUNCTION__, "Device type %s", type);
     type = strtolower(type);
-
+    uvgdebuglog(__LINE__, __FUNCTION__, "Device type to lower %s", type);
     if(type == SIEMENS_CLIENT_DESC)
     {
         device = SIEMENS_CLIENT;
