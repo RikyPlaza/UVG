@@ -20,3 +20,20 @@ char* uvgsprintf(char* buf, char* fmt, ...)
 
     return buf;
 }
+
+char* uvgremovechar(char* buf, char ch)
+{
+    int shift = 0;
+    for(int i = 0; i < strlen(buf); i++)
+    {
+        if(buf[i] == ch)
+            shift++;
+
+        buf[i] = buf[i + shift];
+    }
+
+    for(int i = strlen(buf) - 1; i > strlen(buf) - 1 - shift; i--)
+    {
+        buf[i] = '\0';
+    }
+}
