@@ -64,6 +64,7 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
 
                 if ((!xmlStrcmp(cur->name, (const xmlChar *)"device"))) 
                 {
+                    uvgdebuglog(__LINE__, __FUNCTION__, "Device detected");
                     uvgdebuglog( __LINE__, __FUNCTION__, "Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), getDevType((char*) xmlGetProp(cur, "type")), (char*) xmlGetProp(cur, "port"));
                     
                     devlist->dev[devlist->devNumber].name = (char*) xmlGetProp(cur, "name");
