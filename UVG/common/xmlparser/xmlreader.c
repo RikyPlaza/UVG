@@ -54,8 +54,10 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
 
 	    if ((!xmlStrcmp(cur->name, (const xmlChar *)"devices"))) 
         {
+            uvgdebuglog(__LINE__, __FUNCTION__, "Inside devices");
             cur = cur->xmlChildrenNode;
-
+            uvgdebuglog(__LINE__, __FUNCTION__, "xml node name: %s\n", (char*)cur->name);
+            
             while (cur != NULL) 
             {
                 uvgdebuglog(__LINE__, __FUNCTION__, "xml node name: %s\n", (char*)cur->name);
