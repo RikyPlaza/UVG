@@ -32,7 +32,8 @@ char* uvgremovechar(char* buf, char ch)
         buf[i] = buf[i + shift];
     }
 
-    for(int i = strlen(buf) - 1; i > strlen(buf) - 1 - shift; i--)
+    int originalstrsize = strlen(buf);
+    for(int i = strlen(buf) - 1; i > originalstrsize - 1 - shift; i--)
     {
         buf[i] = '\0';
     }
