@@ -24,17 +24,22 @@ char* uvgsprintf(char* buf, char* fmt, ...)
 char* uvgremovechar(char* buf, char ch)
 {
     int shift = 0;
+    bool skipStrReset = false;
     for(int i = 0; i < strlen(buf); i++)
     {
         if(buf[i] == ch)
+        {
             shift++;
+
+            if(i == strlen(buf) - 1)
+                skipStrReset = true;
+        }            
 
         buf[i] = buf[i + shift];
     }
 
     int originalstrsize = strlen(buf);
-    for(int i = strlen(buf) - 1; i > originalstrsize - 1 - shift; i--)
-    {
-        buf[i] = '\0';
-    }
+    if(skipStrReset)
+        for(int i = strlen(buf) - 1; i > originalstrsize - 1 - shift; i--)
+            buf[i] = '\0';
 }
