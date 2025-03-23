@@ -49,7 +49,7 @@ char* getDevDesc(devtype type)
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist) 
 {
 	cur = cur->xmlChildrenNode;
-	if(cur != NULL) 
+	while (cur != NULL) 
     {
         uvgdebuglog(__LINE__, __FUNCTION__, "xml node name: %s\n", (char*)cur->name);
 
@@ -84,6 +84,7 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
             uvgdebuglog(__LINE__, __FUNCTION__, "Leaving devices");
 		}
         uvgdebuglog(__LINE__, __FUNCTION__, "Outside devices");
+        break;
 	}
     return;
 }
