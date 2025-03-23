@@ -48,6 +48,7 @@ char* getDevDesc(devtype type)
 
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist) 
 {
+    bool devicesParsed = false;
 	cur = cur->xmlChildrenNode;
 	while (cur != NULL) 
     {
@@ -80,11 +81,12 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
                 }
                 cur = cur->next;
             }
-
+            
+            devicesParsed = true;
             uvgdebuglog(__LINE__, __FUNCTION__, "Leaving devices");
 		}
-        uvgdebuglog(__LINE__, __FUNCTION__, "Outside devices");
-        break;
+        if(devicesParsed)
+            break;
 	}
     return;
 }
