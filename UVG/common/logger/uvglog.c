@@ -11,12 +11,16 @@ void initlog()
 
 void uvglog(const char* log)
 {
-    printf("%s - %s\n", ctime(&clk), log);
+    char* timestamp = ctime(&clk);
+    uvgremovechar(timestamp, '\n');
+    printf("%s - %s\n", timestamp, log);
 }
 
 void uvgdebuglog(const char* log, int codeLine, const char* funcName)
 {
 #ifdef DEBUG
-    printf("%s - Function: %s Line: %d - %s\n", ctime(&clk), funcName, codeLine, log);
+    char* timestamp = ctime(&clk);
+    uvgremovechar(timestamp, '\n');
+    printf("%s - Function: %s Line: %d - %s\n", timestamp, funcName, codeLine, log);
 #endif
 }
