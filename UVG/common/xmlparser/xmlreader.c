@@ -67,13 +67,14 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
                 {
                     uvgdebuglog(__LINE__, __FUNCTION__, "Device detected");
                     uvgdebuglog(__LINE__, __FUNCTION__, "Device name %s", (char*) xmlGetProp(cur, "name"));
-                    uvgdebuglog(__LINE__, __FUNCTION__, "Device type %s", setDevType((char*) xmlGetProp(cur, "type"), &(devlist->dev[devlist->devNumber].type)));
+                    setDevType((char*) xmlGetProp(cur, "type"), &(devlist->dev[devlist->devNumber].type));
+                    uvgdebuglog(__LINE__, __FUNCTION__, "Device type %s", getDevDesc(devlist->dev[devlist->devNumber].type));
                     uvgdebuglog(__LINE__, __FUNCTION__, "Device port %s", (char*) xmlGetProp(cur, "port"));
-                    uvgdebuglog( __LINE__, __FUNCTION__, "Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), setDevType((char*) xmlGetProp(cur, "type"), &(devlist->dev[devlist->devNumber].type)), (char*) xmlGetProp(cur, "port"));
+                    uvgdebuglog( __LINE__, __FUNCTION__, "Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), getDevDesc(devlist->dev[devlist->devNumber].type), (char*) xmlGetProp(cur, "port"));
                     
                     devlist->dev[devlist->devNumber].name = (char*) xmlGetProp(cur, "name");
                     devlist->dev[devlist->devNumber].port = (char*) xmlGetProp(cur, "port");
-                    devlist->dev[devlist->devNumber].type = setDevType((char*) xmlGetProp(cur, "type"), &(devlist->dev[devlist->devNumber].type));
+                    setDevType((char*) xmlGetProp(cur, "type"), &(devlist->dev[devlist->devNumber].type));
 
                     devlist->devNumber += 1;
                 }
