@@ -23,14 +23,14 @@ void uvgdebuglog(int codeLine, const char* funcName, const char* log, ...)
 #ifdef DEBUG
     va_list args;
     va_start (args, log);
-    
+
     char buffer[STRINGLEN];
-    uvgsprintf(buffer, log, args)
+    uvgsprintf(buffer, log, args);
     char* timestamp = ctime(&clk);
     uvgremovechar(timestamp, '\n');
     uvgremovechar(buffer, '\n');
     printf("%s - Function: %s Line: %d - %s\n", timestamp, funcName, codeLine, buffer);
 
-    va_end (va);
+    va_end (args);
 #endif
 }
