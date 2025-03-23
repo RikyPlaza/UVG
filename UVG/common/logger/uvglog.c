@@ -22,7 +22,7 @@ void uvgdebuglog(int codeLine, const char* funcName, const char* log, ...)
 {    
 #ifdef DEBUG
     va_list args;
-    va_start (args, fmt);
+    va_start (args, log);
     uvgsprintf(log, args)
     char* timestamp = ctime(&clk);
     uvgremovechar(timestamp, '\n');
