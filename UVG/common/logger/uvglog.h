@@ -2,4 +2,4 @@
 
 void initlog();
 void uvglog(const char* log);
-void uvgdebuglog(const char* log, int codeLine, const char* funcName);
+void uvgdebuglog(int codeLine, const char* funcName, const char* log, ...);
