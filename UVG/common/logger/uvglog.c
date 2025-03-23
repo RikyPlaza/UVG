@@ -6,7 +6,9 @@ time_t clk;
 void initlog()
 {
     clk = time(NULL);
-    printf("%s - Logger initialized.\n", ctime(&clk));
+    char* timestamp = ctime(&clk);
+    uvgremovechar(timestamp, '\n');
+    printf("%s - Logger initialized.\n", timestamp);
 }
 
 void uvglog(const char* log)
