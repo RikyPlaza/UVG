@@ -81,12 +81,14 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
                 }
                 cur = cur->next;
             }
-            
+
             devicesParsed = true;
             uvgdebuglog(__LINE__, __FUNCTION__, "Leaving devices");
 		}
         if(devicesParsed)
             break;
+
+        cur = cur->next;
 	}
     return;
 }
