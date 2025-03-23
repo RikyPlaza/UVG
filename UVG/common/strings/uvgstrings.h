@@ -5,5 +5,5 @@
 #define STRINGLEN 1024
 
 char* strtolower(char* str);
-char* uvgsprintf(char* fmt, ...);
+void uvgsprintf(char* buf, char* fmt, va_list vars);
 char* uvgremovechar(char* buf, char ch);

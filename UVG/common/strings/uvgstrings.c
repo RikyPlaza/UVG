@@ -12,15 +12,9 @@ char* strtolower(char* str)
     return str;
 }
 
-char* uvgsprintf(char* fmt, ...)
-{
-    char buf[STRINGLEN];
-    va_list va;
-    va_start (va, fmt);
-    vsprintf (buf, fmt, va);
-    va_end (va);
-
-    return buf;
+void uvgsprintf(char* buf, char* fmt, va_list vars)
+{    
+    vsprintf (buf, fmt, vars);
 }
 
 char* uvgremovechar(char* buf, char ch)
