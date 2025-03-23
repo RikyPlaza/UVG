@@ -12,8 +12,9 @@ char* strtolower(char* str)
     return str;
 }
 
-char* uvgsprintf(char* buf, char* fmt, ...)
+char* uvgsprintf(char* fmt, ...)
 {
+    char buf[STRINGLEN];
     va_list va;
     va_start (va, fmt);
     vsprintf (buf, fmt, va);
