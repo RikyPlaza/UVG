@@ -1,6 +1,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdarg.h>
+#include <stdbool.h>
 
 #define STRINGLEN 1024
 
