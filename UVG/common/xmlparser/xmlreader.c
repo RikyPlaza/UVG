@@ -132,6 +132,7 @@ void readFullConfig(devices* devlist, variables* varlist, char* docPath)
 	}
 
     getDevicesFromConfig(config, cur, devlist);
+    uvgdebuglog(__LINE__, __FUNCTION__, "Devices parsed");
     getVariablesFromConfig(config, cur, varlist);
 
 	xmlFreeDoc(config);
