@@ -1,8 +1,7 @@
 #include "xmlreader.h"
 
-devtype getDevType(char* type)
+void setDevType(char* type, devtype* device)
 {
-    devtype device;
     uvgdebuglog(__LINE__, __FUNCTION__, "Device type %s", type);
     type = strtolower(type);
     uvgdebuglog(__LINE__, __FUNCTION__, "Device type to lower %s", type);
@@ -25,8 +24,6 @@ devtype getDevType(char* type)
     {
         /*Exit the application with error*/
     }
-    
-    return device;
 }
 
 char* getDevDesc(devtype type)
@@ -70,13 +67,13 @@ void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist)
                 {
                     uvgdebuglog(__LINE__, __FUNCTION__, "Device detected");
                     uvgdebuglog(__LINE__, __FUNCTION__, "Device name %s", (char*) xmlGetProp(cur, "name"));
-                    uvgdebuglog(__LINE__, __FUNCTION__, "Device type %s", getDevType((char*) xmlGetProp(cur, "type")));
+                    uvgdebuglog(__LINE__, __FUNCTION__, "Device type %s", getDevType((char*) xmlGetProp(cur, "type"), devlist->dev[devlist->devNumber]->type));
                     uvgdebuglog(__LINE__, __FUNCTION__, "Device port %s", (char*) xmlGetProp(cur, "port"));
-                    uvgdebuglog( __LINE__, __FUNCTION__, "Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), getDevType((char*) xmlGetProp(cur, "type")), (char*) xmlGetProp(cur, "port"));
+                    uvgdebuglog( __LINE__, __FUNCTION__, "Device name: %s - Device type: %s - Device port: %s\n", (char*) xmlGetProp(cur, "name"), getDevType((char*) xmlGetProp(cur, "type"), devlist->dev[devlist->devNumber]->type), (char*) xmlGetProp(cur, "port"));
                     
                     devlist->dev[devlist->devNumber].name = (char*) xmlGetProp(cur, "name");
                     devlist->dev[devlist->devNumber].port = (char*) xmlGetProp(cur, "port");
-                    devlist->dev[devlist->devNumber].type = getDevType((char*) xmlGetProp(cur, "type"));
+                    devlist->dev[devlist->devNumber].type = getDevType((char*) xmlGetProp(cur, "type"), devlist->dev[devlist->devNumber]->type);
 
                     devlist->devNumber += 1;
                 }

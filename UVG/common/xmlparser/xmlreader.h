@@ -5,7 +5,7 @@
 #include "../../drivers/driverlist.h"
 #include "../logger/uvglog.h"
 
-devtype getDevType(char* type);
+void setDevType(char* type, devtype* device);
 char* getDevDesc(devtype type);
 void getDevicesFromConfig(xmlDocPtr doc, xmlNodePtr cur, devices* devlist);
 void getVariablesFromConfig(xmlDocPtr doc, xmlNodePtr cur, variables* varlist);
